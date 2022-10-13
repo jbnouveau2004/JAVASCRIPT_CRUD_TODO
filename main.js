@@ -1,12 +1,12 @@
 var id;
 
-
+// appel à la fonction ajouter ou modifier
 var btn = document.getElementById("ajouter")
 btn.addEventListener("click", ajout);
 
 
 function ajout(){
-    if(btn.value=="Modifier"){
+    if(btn.value=="Modifier"){ // si modifier, on remplace l'ajout par la modification
         var titre;
         var tache;
         var pointage = document.getElementById(id);
@@ -15,10 +15,10 @@ function ajout(){
         tache = document.getElementById("tache").value;
         selection.getElementsByTagName('b')[0].innerText = titre;
         selection.getElementsByTagName('b')[1].innerText = tache;
-        document.getElementById("titre").value = "";
+        document.getElementById("titre").value = ""; // on remet l'ajout à sa place
         document.getElementById("tache").value = "";
         btn.value="Ajouter";
-    }else{
+    }else{ // on ajouter un todo
         var titre;
         var tache;
         var entrer;
@@ -34,12 +34,12 @@ function ajout(){
         }
     }
 
-function supprime(id){
+function supprime(id){ // supprimer en fonction de l'id
     var pointage = document.getElementById(id);
     pointage.parentElement.remove();
 }
 
-function modifie(id){
+function modifie(id){ // on exécute la modification en réaffichant la MAJ
     var pointage = document.getElementById(id);
     var selection = pointage.parentElement;
     var titre = selection.getElementsByTagName('b')[0].textContent;
